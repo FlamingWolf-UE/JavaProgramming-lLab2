@@ -32,6 +32,7 @@ public class Channel implements UserManagable {
         _chats = new ArrayList<>();
     }
 
+
     /**
      * Returns the unique identifier of this `Channel`.
      * @return the unique identifier of this `Channel`.
@@ -44,16 +45,22 @@ public class Channel implements UserManagable {
      * Adds a `GroupChat` object to this `Channel`.
      * @param chat the `GroupChat` object to add to this `Channel`.
      */
-    public void addGroupChat(GroupChat chat)
+    public synchronized void addGroupChat(GroupChat chat)
     {
         _chats.add(chat);
     }
+
+    public synchronized String get_name()
+    {
+        return _name;
+    }
+
 
     /**
      * Returns an unmodifiable list of `GroupChat` objects associated with this `Channel`.
      * @return an unmodifiable list of `GroupChat` objects associated with this `Channel`.
      */
-    public List<GroupChat> getAllChats()
+    public synchronized List<GroupChat> getAllChats()
     {
         return Collections.unmodifiableList(_chats);
     }
@@ -65,7 +72,7 @@ public class Channel implements UserManagable {
      * @return an `Optional` object that contains a `GroupChat` object associated with this `Channel`,
      *         if one exists with the specified `uid`.
      */
-    public Optional<GroupChat> getGroupChatById(UID uid)
+    public synchronized Optional<GroupChat> getGroupChatById(UID uid)
     {
         return _chats.stream().filter(chat -> chat._id.equals(uid)).findFirst();
     }
@@ -74,28 +81,28 @@ public class Channel implements UserManagable {
      * Removes a `GroupChat` object from this `Channel`.
      * @param chat the `GroupChat` object to remove from this `Channel`.
      */
-    public void removeChat(GroupChat chat)
+    public synchronized void removeChat(GroupChat chat)
     {
         _chats.remove(chat);
     }
 
     @Override
-    public void removeParticipant(User user) {
+    public synchronized void removeParticipant(User user) {
         _users.remove(user);
     }
 
     @Override
-    public void addParticipant(User user) {
+    public synchronized void addParticipant(User user) {
         _users.add(user);
     }
 
     @Override
-    public Optional<User> getParticipantById(UID uid) {
+    public synchronized Optional<User> getParticipantById(UID uid) {
         return _users.stream().filter(user -> user.get_id().equals(uid)).findFirst();
     }
 
     @Override
-    public List<User> getParticipants() {
+    public synchronized List<User> getParticipants() {
         return Collections.unmodifiableList(_users);
     }
 }

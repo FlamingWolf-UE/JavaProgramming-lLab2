@@ -26,13 +26,13 @@ public class Main {
                 new Date(),
                 staticSticker
         ));
-        chat.get_msgManager().getMessages(); //Возвожность изменить список сообщений (нужна Immutable обёртка)
+        chat.get_msgManager().getMessages();
         chat.addParticipant(new User(new UID(), "John Dough"));
         chat.addParticipant(new User(new UID(), "Dana Merser"));
         Channel ch = new Channel(new UID(), "MyChat");
         ch.addGroupChat(chat);
 
-
+        
 
         var user1 = new User(new UID(), "Helen Par");
         var user2 = new User(new UID(), "Robert Par");
