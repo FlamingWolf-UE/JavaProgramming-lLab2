@@ -43,10 +43,11 @@ public class Channel implements UserManagable {
 
     /**
      * Adds a `GroupChat` object to this `Channel`.
-     * @param chat the `GroupChat` object to add to this `Channel`.
      */
-    public synchronized void addGroupChat(GroupChat chat)
+    public synchronized void createGroupChat(String name)
     {
+        var chat = new GroupChat(name);
+        chat.participants = _users;
         _chats.add(chat);
     }
 
@@ -88,12 +89,14 @@ public class Channel implements UserManagable {
 
     @Override
     public synchronized void removeParticipant(User user) {
+        _chats.forEach(chat-> chat.removeParticipant(user));
         _users.remove(user);
     }
 
     @Override
     public synchronized void addParticipant(User user) {
         _users.add(user);
+        _chats.forEach(chat -> chat.addParticipant(user));
     }
 
     @Override

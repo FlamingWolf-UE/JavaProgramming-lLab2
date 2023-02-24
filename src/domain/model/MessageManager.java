@@ -3,10 +3,7 @@ package domain.model;
 import domain.Interfaces.IMessageManager;
 
 import java.rmi.server.UID;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * A class for managing messages in a conversation.
@@ -72,7 +69,14 @@ public class MessageManager implements IMessageManager {
     public Optional<Message<?>> getNewestMessage() {
         return Optional.ofNullable(_managedChat.messages.get(_managedChat.messages.size() - 1));
     }
-
+    @Override
+    public List<Message<?>> getLastMessages(int count) {
+        int totalMessages = _managedChat.messages.size();
+        if (count > totalMessages) {
+            count = totalMessages;
+        }
+        return new ArrayList<>(_managedChat.messages.subList(totalMessages - count, totalMessages));
+    }
     /**
      * Removes all messages from the conversation.
      */

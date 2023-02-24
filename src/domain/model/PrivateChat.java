@@ -18,6 +18,10 @@ public class PrivateChat extends Conversation {
         participants.add(user2);
     }
 
+
+
+
+
     /**
      * Returns the other participant of this private chat given one participant.
      * @param primary the first participant
@@ -39,7 +43,8 @@ public class PrivateChat extends Conversation {
         return this._id.equals(other._id);
     }
 
-
-
-
+    @Override
+    public UID getId() {
+        return super.getId();
+    }
 }

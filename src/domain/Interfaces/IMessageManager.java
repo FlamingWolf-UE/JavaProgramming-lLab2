@@ -46,4 +46,11 @@ public interface IMessageManager {
      * Clear all messages stored in the message manager.
      */
     void clearChat();
+    /**
+     * Returns last messages of chat
+     * @param count The count of returned messages.
+     * @return A list of last messages. If messages less than requested by count - returns all messages.
+     */
+    List<Message<?>> getLastMessages(int count);
+
 }

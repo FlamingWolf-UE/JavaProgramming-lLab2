@@ -3,8 +3,6 @@ package domain.model;
 import domain.Interfaces.UserManagable;
 
 import java.rmi.server.UID;
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -17,12 +15,16 @@ public class GroupChat extends Conversation implements UserManagable {
     /**
      * Constructs a new GroupChat object with the specified ID and name.
      *
-     * @param id The unique identifier for the group chat.
      * @param name The name of the group chat.
      */
-    public GroupChat(UID id, String name) {
-        super(id);
+    public GroupChat(String name) {
+        super(new UID());
         _name = name;
+    }
+
+    @Override
+    public UID getId() {
+        return super.getId();
     }
 
     /**
@@ -56,15 +58,6 @@ public class GroupChat extends Conversation implements UserManagable {
         return participants.stream().filter(user -> user.get_id().equals(uid)).findFirst();
     }
 
-    /**
-     * Returns an unmodifiable list of all participants in the group chat.
-     *
-     * @return An unmodifiable list of all participants in the group chat.
-     */
-    @Override
-    public List<User> getParticipants() {
-        return Collections.unmodifiableList(participants);
-    }
 
     /**
      * Returns a hash code for the group chat.

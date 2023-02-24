@@ -15,11 +15,10 @@ public class StaticSticker<T extends Image> implements Sticker<T> {
     /**
      * Constructs a new static sticker object with the given id and image content.
      *
-     * @param id The unique identifier of the sticker.
      * @param image The image content of the sticker.
      */
-    public StaticSticker(UID id, T image) {
-        _id = id;
+    public StaticSticker(T image) {
+        _id = new UID();
         _image = image;
     }
 

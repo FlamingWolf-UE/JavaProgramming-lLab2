@@ -4,16 +4,15 @@ import java.rmi.server.UID;
 
 public class User {
 
-    private UID _id;
+    private final UID _id;
     private String _name;
 
     /**
      * Constructor for the User class.
-     * @param id the user's unique identifier
      * @param name the user's name
      */
-    public User(UID id, String name) {
-        _id = id;
+    public User( String name) {
+        _id = new UID();
         _name = name;
     }
 

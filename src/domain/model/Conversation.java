@@ -36,6 +36,10 @@ public abstract class Conversation {
         _msgManager = new MessageManager(this);
     }
 
+    public List<User> getParticipants() {
+        return participants;
+    }
+
     /**
      * Returns the message manager for the conversation.
      *

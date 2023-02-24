@@ -18,13 +18,12 @@ public class Message<T> {
     /**
 
      Constructs a new Message object.
-     @param id the unique ID of the message
      @param sender the unique ID of the user who sent the message
      @param timestamp the timestamp of the message
      @param content the content of the message
      */
-    public Message(UID id, UID sender, Date timestamp, T content) {
-        _id = id;
+    public Message(UID sender, Date timestamp, T content) {
+        _id = new UID();
         _senderId = sender;
         _timestamp = timestamp;
         _content = content;
