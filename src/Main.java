@@ -1,7 +1,7 @@
-
-import Classes.*;
-import Interfaces.Sticker;
-
+import Сlient.Classes.MessageDrawer;
+import Сlient.Classes.StrategyFactory;
+import domain.model.*;
+import domain.Interfaces.*;
 import java.awt.image.BufferedImage;
 import java.rmi.server.UID;
 import java.util.ArrayList;
