@@ -6,15 +6,15 @@ import domain.model.User;
 
 import java.rmi.server.UID;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class PrivateChatRepository implements IPrivateChatRepository {
-    private HashMap<UID, PrivateChat> privateChatHashMap;
+    private ConcurrentHashMap<UID, PrivateChat> privateChatHashMap;
 
     public PrivateChatRepository() {
-        this.privateChatHashMap = new HashMap<>();
+        this.privateChatHashMap = new ConcurrentHashMap<>();
     }
 
     @Override

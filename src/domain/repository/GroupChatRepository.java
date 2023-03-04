@@ -5,14 +5,17 @@ import domain.Interfaces.IGroupChatRepository;
 import domain.model.GroupChat;
 
 import java.rmi.server.UID;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class GroupChatRepository implements IGroupChatRepository {
 
-    private final Map<UID, GroupChat> groupChats;
+    private final ConcurrentHashMap<UID, GroupChat> groupChats;
 
     public GroupChatRepository() {
-        groupChats = new HashMap<>();
+        groupChats = new ConcurrentHashMap<>();
     }
 
     /**

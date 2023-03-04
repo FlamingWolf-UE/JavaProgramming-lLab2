@@ -19,12 +19,12 @@ public class ChannelService implements IChannelService {
     }
 
     @Override
-    public void createChannel(Channel channel) {
+    public synchronized void createChannel(Channel channel) {
         channelRepository.add(channel);
     }
 
     @Override
-    public void deleteChannel(Channel channel) {
+    public synchronized void deleteChannel(Channel channel) {
         channelRepository.delete(channel);
     }
 
@@ -39,11 +39,11 @@ public class ChannelService implements IChannelService {
     }
 
     @Override
-    public void updateChannel(Channel channel) {
+    public synchronized void updateChannel(Channel channel) {
         channelRepository.update(channel);
     }
     @Override
-    public void addMessageToChannelGroupChat(UID channelId, UID groupId, Message<?> msg) {
+    public  void addMessageToChannelGroupChat(UID channelId, UID groupId, Message<?> msg) {
         var channel = channelRepository.findById(channelId);
         if (channel.isPresent()){
             var groupChat = channel.get().getGroupChatById(groupId);

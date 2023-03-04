@@ -5,12 +5,13 @@ import domain.model.Channel;
 
 import java.rmi.server.UID;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ChannelRepository implements IChannelRepository {
-    private final Map<UID, Channel> channels;
+    private final ConcurrentHashMap<UID, Channel> channels;
 
     public ChannelRepository() {
-        this.channels = new HashMap<>();
+        this.channels = new ConcurrentHashMap<>();
     }
 
     public void add(Channel channel) {

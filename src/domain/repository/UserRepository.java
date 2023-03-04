@@ -4,13 +4,16 @@ import domain.Interfaces.IUserRepository;
 import domain.model.User;
 
 import java.rmi.server.UID;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class UserRepository implements IUserRepository {
-    private final Map<UID, User> users;
+    private final ConcurrentHashMap<UID, User> users;
 
     public UserRepository() {
-        this.users = new HashMap<>();
+        this.users = new ConcurrentHashMap<>();
     }
 
     @Override
