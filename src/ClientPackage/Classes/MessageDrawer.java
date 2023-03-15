@@ -1,6 +1,6 @@
-package Сlient.Classes;
+package ClientPackage.Classes;
 
-import Сlient.Interfaces.IMessageDrawerStrategy;
+import ClientPackage.Interfaces.IMessageDrawerStrategy;
 
 public class MessageDrawer {
     protected IMessageDrawerStrategy _strategy;

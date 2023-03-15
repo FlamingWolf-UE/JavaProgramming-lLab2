@@ -13,4 +13,6 @@ public interface IUserRepository {
     public List<User> findAll();
     public void update(User user);
     public Optional<User> findByUsername(String name);
+
+    Optional<User> findByUsernameAndPassword(String username, String password);
 }

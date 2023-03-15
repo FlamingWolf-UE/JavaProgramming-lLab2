@@ -90,4 +90,6 @@ public class GroupChatService implements IGroupChatService {
         var channel = chatRepository.findById(groupId);
         channel.ifPresent(value -> value.removeParticipant(user));
     }
+
+
 }

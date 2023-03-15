@@ -1,8 +1,8 @@
-package Сlient.Classes;
+package ClientPackage.Classes;
 
 import domain.model.AnimatedSticker;
 import domain.model.StaticSticker;
-import Сlient.Interfaces.IMessageDrawerStrategy;
+import ClientPackage.Interfaces.IMessageDrawerStrategy;
 
 public class
 StrategyFactory {

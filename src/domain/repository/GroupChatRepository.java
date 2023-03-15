@@ -49,6 +49,11 @@ public class GroupChatRepository implements IGroupChatRepository {
         return Optional.ofNullable(groupChats.get(id));
     }
 
+    public void getChatsByUserID()
+    {
+
+    }
+
     /**
      * Returns a list of all group chats in the repository.
      *
@@ -58,6 +63,8 @@ public class GroupChatRepository implements IGroupChatRepository {
     public List<GroupChat> findAll() {
         return new ArrayList<>(groupChats.values());
     }
+
+
 
     /**
      * Updates the specified group chat in the repository.

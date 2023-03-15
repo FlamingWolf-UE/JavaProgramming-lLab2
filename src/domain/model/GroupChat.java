@@ -12,6 +12,14 @@ public class GroupChat extends Conversation implements UserManagable {
 
     private String _name;
 
+    public String get_name() {
+        return _name;
+    }
+
+    public void set_name(String _name) {
+        this._name = _name;
+    }
+
     /**
      * Constructs a new GroupChat object with the specified ID and name.
      *
@@ -24,6 +32,7 @@ public class GroupChat extends Conversation implements UserManagable {
 
     @Override
     public UID getId() {
+
         return super.getId();
     }
 

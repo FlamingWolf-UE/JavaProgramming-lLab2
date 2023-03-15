@@ -16,7 +16,7 @@ public interface IUserService {
     Optional<User> findUserByName(String name);
 
     List<User> findAllUsers();
-
+    Optional<User> findByUsernameAndPassword(String username, String password);
 
 
 }

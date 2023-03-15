@@ -1,4 +1,4 @@
-package Сlient.Interfaces;
+package ClientPackage.Interfaces;
 
 
 public interface IMessageDrawerStrategy {

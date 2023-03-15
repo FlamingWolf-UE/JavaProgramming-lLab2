@@ -1,19 +1,50 @@
 package domain.model;
 
+import java.io.Serializable;
 import java.rmi.server.UID;
+import java.util.List;
 
-public class User {
+public class User implements Serializable {
 
     private final UID _id;
     private String _name;
+    private String _password;
+
+    private final List<UID> _chatUIDs;
+
+    public String get_password() {
+        return _password;
+    }
+
+    public List<UID> get_chatUIDs() {
+        return _chatUIDs;
+    }
+
+
+    public void AddChatUID(UID id)
+    {
+        _chatUIDs.add(id);
+    }
+
+    public void deleteChatUID(UID id)
+    {
+        _chatUIDs.remove(id);
+    }
+
+
+    public void set_password(String _password) {
+        this._password = _password;
+    }
 
     /**
      * Constructor for the User class.
      * @param name the user's name
      */
-    public User( String name) {
+    public User(String name, String password, List<UID> chatIds) {
         _id = new UID();
         _name = name;
+        _password = password;
+        _chatUIDs = chatIds;
     }
 
     /**

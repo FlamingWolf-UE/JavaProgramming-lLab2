@@ -17,6 +17,14 @@ public class SendMessageToGroupChatCommand implements ICommand {
         this.message = message;
     }
 
+    public Message<?> getMessage() {
+        return message;
+    }
+
+    public UID getGroupChatId() {
+        return groupChatId;
+    }
+
     @Override
     public void execute() {
 

@@ -1,5 +1,6 @@
 package domain.model;
 
+import java.io.Serializable;
 import java.rmi.server.UID;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ import java.util.Date;
 
  @param <T> the type of the message content
  */
-public class Message<T> {
+public class Message<T> implements Serializable {
     protected UID _id;
     protected UID _senderId;
     protected Date _timestamp;

@@ -3,6 +3,7 @@ package domain.model;
 
 import domain.Interfaces.IMessageManager;
 
+import java.io.Serializable;
 import java.rmi.server.UID;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 
  Abstract class that represents a conversation, which is a discussion between users in a messaging system.
  */
-public abstract class Conversation {
+public abstract class Conversation implements Serializable {
     protected IMessageManager _msgManager;
     protected List<User> participants = new ArrayList<>();
     protected UID _id;

@@ -1,5 +1,7 @@
 package domain.Interfaces;
 
-public interface ICommand {
+import java.io.Serializable;
+
+public interface ICommand extends Serializable {
     public void execute();
 }

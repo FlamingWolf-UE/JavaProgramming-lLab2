@@ -6,6 +6,7 @@ import domain.model.User;
 import java.rmi.server.UID;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -50,4 +51,17 @@ public class UserRepository implements IUserRepository {
         }
         return Optional.empty();
     }
+
+
+    @Override
+    public Optional<User> findByUsernameAndPassword(String username, String password) {
+        for (Map.Entry<UID, User> entry : users.entrySet()) {
+            User user = entry.getValue();
+            if (user.get_name().equals(username) && user.get_password().equals(password)) {
+                return Optional.of(user);
+            }
+        }
+        return Optional.empty();
+    }
+
 }

@@ -2,6 +2,7 @@
 package domain.Interfaces;
 import domain.model.*;
 
+import java.io.Serializable;
 import java.rmi.server.UID;
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +11,7 @@ import java.util.Optional;
 
  An interface representing a message manager that can add, remove, retrieve, and manipulate messages.
  */
-public interface IMessageManager {
+public interface IMessageManager extends Serializable {
     /**
      * Add a new message to the message manager.
      * @param msg The message to add.
