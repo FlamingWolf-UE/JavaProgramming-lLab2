@@ -131,10 +131,7 @@ public class Server
 
                         for (var chatId:user.get().get_chatUIDs()) {
                            var chat = _groupChatService.findGroupChatById(chatId);
-                            if (chat.isPresent())
-                            {
-                                response.addChat(chat.get());
-                            }
+                            chat.ifPresent(response::addChat);
                         }
                         oos.writeObject(response);
                         this.user = user.get();

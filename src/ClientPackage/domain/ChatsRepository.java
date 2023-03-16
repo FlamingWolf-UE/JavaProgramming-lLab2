@@ -13,9 +13,7 @@ public class ChatsRepository {
         public Optional<GroupChat> getChatById(UID chatId) {
         for (GroupChat chat : chats) {
             if (chat.getId().equals(chatId)) {
-                var ch = Optional.of(chat);
-                System.out.println(ch.get());
-                return ch;
+                return Optional.of(chat);
             }
         }
         return Optional.empty();

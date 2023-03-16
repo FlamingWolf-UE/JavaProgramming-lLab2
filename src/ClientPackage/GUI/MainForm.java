@@ -10,13 +10,11 @@ import domain.model.Message;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
-public class MainForm extends JFrame implements ActionListener, ServerListener {
+public class MainForm extends JFrame implements  ServerListener {
 
     ChatsRepository repository;
     Client client;
@@ -105,8 +103,6 @@ public class MainForm extends JFrame implements ActionListener, ServerListener {
         new MainForm();
     }
 
-
-
     @Override
     public void onMessageRecieved(SendMessageToGroupChatCommand command) {
         var chat =     repository.getChatById(command.getGroupChatId());
@@ -117,24 +113,15 @@ public class MainForm extends JFrame implements ActionListener, ServerListener {
            revalidate();
            repaint();
        }
-
-
     }
 
     @Override
     public void onAuthentificate(LoadUserDataCommand command) {
-
-
         repository.setChats( command.getChats());
         repository.getChats().forEach(chat -> model.addElement(chat));
         revalidate();
         repaint();
-
     }
 
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
 }
